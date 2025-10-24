@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="Contact Page" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Contact | Portfolio</title>
+
+  <style>
+    /* ---------- GLOBAL ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: black;
+      color: #fff;
+      overflow-x: hidden;
+      animation: show-content 1.5s linear forwards;
+      opacity: 0;
+      visibility: hidden;
+      animation-delay: 1s;
+    }
+
+    @keyframes show-content {
+      100% {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 60px;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid limegreen;
+      animation: show-content 1.5s linear forwards;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #7cf03d;
+    }
+
+    .navbar ul {
+      display: flex;
+    }
+
+    .navbar ul li {
+      list-style: none;
+      margin: 0 25px;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      transition: 0.4s;
+    }
+
+    .navbar ul li a:hover,
+    .navbar ul li.active a {
+      color: #7cf03d;
+    }
+
+    /* ---------- CONTACT SECTION ---------- */
+    section.contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 80px;
+      min-height: 100vh;
+      background: url('rina.jpg') no-repeat center/cover;
+      position: relative;
+      z-index: 1;
+    }
+
+    section.contact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    .contact .content {
+      text-align: center;
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+
+    .contact .content h2 {
+      font-size: 35px;
+      color: #7cf03d;
+      margin-bottom: 10px;
+    }
+
+    .contact .content p {
+      color: #bbb;
+      font-weight: 300;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- CONTACT INFO ---------- */
+    .contactInfo {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contactInfo .box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contactInfo .icon {
+      width: 60px;
+      height: 60px;
+      background: #7cf03d;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 22px;
+      box-shadow: 0 0 10px lime;
+    }
+
+    .contactInfo .text h3 {
+      color: #7cf03d;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .contactInfo .text p {
+      color: #ddd;
+      font-size: 15px;
+    }
+
+    /* ---------- CONTACT FORM ---------- */
+    .contactForm {
+      width: 45%;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(124, 240, 61, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .contactForm h2 {
+      color: #7cf03d;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contactForm .inputBox {
+      position: relative;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .contactForm .inputBox input,
+    .contactForm .inputBox textarea {
+      width: 100%;
+      padding: 10px 5px;
+      font-size: 16px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #7cf03d;
+      color: white;
+      outline: none;
+      resize: none;
+      transition: 0.3s;
+    }
+
+    .contactForm .inputBox span {
+      position: absolute;
+      left: 0;
+      top: 10px;
+      color: #aaa;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .contactForm .inputBox input:focus ~ span,
+    .contactForm .inputBox textarea:focus ~ span,
+    .contactForm .inputBox input:valid ~ span,
+    .contactForm .inputBox textarea:valid ~ span {
+      color: #7cf03d;
+      transform: translateY(-18px);
+      font-size: 12px;
+    }
+
+    .contactForm .inputBox input[type="submit"] {
+      background: #7cf03d;
+      color: black;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.4s;
+      margin-top: 20px;
+    }
+
+    .contactForm .inputBox input[type="submit"]:hover {
+      background: transparent;
+      border: 2px solid #7cf03d;
+      color: #7cf03d;
+      box-shadow: 0 0 10px lime;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 991px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .contactInfo, .contactForm {
+        width: 100%;
+      }
+      .contactForm {
+        margin-top: 30px;
+      }
+    }
+
+    /* ---------- ANIMATED BARS ---------- */
+    .bars-animation {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      z-index: -1;
+    }
+
+    .bars-animation .bar {
+      height: 100vh;
+      width: 5px;
+      background: lime;
+      margin-right: 3px;
+      transform: translateY(-100%);
+      animation: show-bar 1s ease-in-out forwards;
+      animation-delay: calc(.1s * var(--i));
+    }
+
+    @keyframes show-bar {
+      100% {
+        transform: translateY(0%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+   <nav class="navbar">
+        <a href="#" class="logo">Belinda Mukhaye</a>
+        <ul class="nav-links">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/aboutus.html">About</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+    </nav>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="content">
+      <h2>Contact Me</h2>
+      <p>Let's work together! I'm open to collaborations, freelance work, or just a friendly chat.</p>
+    </div>
+
+    <div class="container">
+      <div class="contactInfo">
+        <div class="box">
+          <div class="icon"><i class="fa fa-map-marker"></i></div>
+          <div class="text">
+            <h3>Address</h3>
+            <p>Kampala, Mukono, Bukerere Namwezi, Uganda</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="icon"><i class="fa fa-phone"></i></div>
+          <div class="text">
+            <h3>Phone</h3>
+            <p>+256-761-627-809</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="icon"><i class="fa fa-envelope"></i></div>
+          <div class="text">
+            <h3>Email</h3>
+            <p>namuzbelinda@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contactForm">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <h2>Send Message</h2>
+          <input type="hidden" name="access_key" value="06daa683-44fc-40ba-8bd5-5274067601f8">
+
+          <div class="inputBox">
+            <input type="text" name="name" required="required">
+            <span>Full Name</span>
+          </div>
+
+          <div class="inputBox">
+            <input type="email" name="email" required="required">
+            <span>Email</span>
+          </div>
+
+          <div class="inputBox">
+            <textarea name="message" required="required"></textarea>
+            <span>Type your Message...</span>
+          </div>
+
+          <div class="inputBox">
+            <input type="submit" value="Send">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bars Animation -->
+    <div class="bars-animation">
+      <div clas
