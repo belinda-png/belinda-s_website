@@ -22,24 +22,27 @@
 
         /* --- Navbar --- */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 8%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 100;
-            border-bottom: 1px solid #7cf03d;
-        }
+              position: fixed;
+              top: 0;
+              right: 0;
+              width: 100%;
+              display: flex;
+              justify-content: flex-end;   /* push navbar items to the right */
+              padding: 20px 8%;
+              background: rgba(0, 0, 0, 0.6);
+              z-index: 100;
+              border-bottom: 1px solid #7cf03d;
+            }
 
-        .navbar .logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: #7cf03d;
-        }
+
+      .navbar .logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  margin-right: auto; /* pushes nav links to the right */
+  text-decoration: none;
+}
+
 
         .navbar ul {
             display: flex;
@@ -242,9 +245,12 @@
     <!-- Navbar -->
     <nav class="navbar">
         <!-- <div class="logo">Portfolio</div> -->
+        <a href="#" class="logo">Belinda Mukhaye</a>
         <ul>
+
             <li><a href="/index.html">Home</a></li>
             <li class="active"><a href="#">Skills</a></li>
+            <li><a href="/aboutus.html">About</a></li>
             <li><a href="/projects.html">Projects</a></li>
             <li><a href="/contact.html">Contact</a></li>
         </ul>

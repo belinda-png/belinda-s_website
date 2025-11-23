@@ -23,21 +23,18 @@
         }
 
         .navbar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 9%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 100;
-            visibility: hidden;
-            opacity: 0;
-            animation: show-content 1.5s linear forwards;
-            animation-delay: 1s;
-        }
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;   /* push navbar items to the right */
+                padding: 20px 8%;
+                background: rgba(0, 0, 0, 0.6);
+                z-index: 100;
+                border-bottom: 1px solid #7cf03d;
+                }
+
 
         @keyframes show-content {
             100% {

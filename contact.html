@@ -43,25 +43,29 @@
 
     /* ---------- NAVBAR ---------- */
     .navbar {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 60px;
-      z-index: 100;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid limegreen;
-      animation: show-content 1.5s linear forwards;
-    }
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;   /* push navbar items to the right */
+  padding: 20px 8%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  border-bottom: 1px solid #7cf03d;
+}
 
     .logo {
       font-size: 22px;
       font-weight: 700;
     }
+.navbar .logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  margin-right: auto; /* pushes nav links to the right */
+  text-decoration: none;
+}
 
     .navbar ul {
       display: flex;
@@ -285,7 +289,7 @@
 <body>
   <!-- Navbar -->
    <nav class="navbar">
-        <!-- <div class="logo"> Belinda Mukhaye</div> -->
+        <div class="logo"> Belinda Mukhaye</div>
         <ul class="nav-links">
             <li class="active"><a href="/">Home</a></li>
             <li><a href="/aboutus.html">About</a></li>

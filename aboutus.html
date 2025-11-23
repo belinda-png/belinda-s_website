@@ -31,20 +31,14 @@ body {
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 20px 8%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 100;
   border-bottom: 1px solid #7cf03d;
-}
-
-.navbar .logo {
-  font-size: 22px;
-  font-weight: 700;
 }
 
 .navbar ul {
@@ -67,32 +61,73 @@ body {
   color: #7cf03d;
 }
 
-/* --- About Section --- */
+
+/* --- ABOUT SECTION WITH CARD --- */
 .about-section {
   width: 100%;
   min-height: 100vh;
-  padding: 100px 10%;
+  padding: 120px 10% 50px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
   background: #111;
   color: #fff;
-  animation: fadeIn 1.5s ease-in-out;
 }
 
+.about-card {
+  width: 80%;
+  max-width: 850px;
+  padding: 40px;
+  text-align: center;
+
+  /* CARD STYLING */
+  background: rgba(255, 255, 255, 0.05); /* slight transparency */
+  border-radius: 20px;
+  border: 1px solid rgba(124, 240, 61, 0.2);
+
+  box-shadow: 0 0 20px rgba(124, 240, 61, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.about-card h1 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  color: #7cf03d;
+  text-transform: uppercase;
+}
+
+.about-card p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #ddd;
+  margin-bottom: 25px;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  font-size: 24px;
+  margin: 0 10px;
+  color: #7cf03d;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #b9ff8f;
+  transform: scale(1.2);
+}
+
+
+
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .about-content {
-  width: 55%;
+  max-width: 800px;
 }
 
 .about-content h1 {
@@ -102,35 +137,11 @@ body {
   text-transform: uppercase;
 }
 
-.about-content h3 {
-  font-size: 24px;
-  color: #ccc;
-  margin-bottom: 15px;
-}
-
 .about-content p {
-  font-size: 17px;
-  line-height: 1.6;
-  color: #aaa;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #ddd;
   margin-bottom: 25px;
-}
-
-.about-content .btn {
-  background: #7cf03d;
-  color: #000;
-  border: none;
-  padding: 12px 35px;
-  border-radius: 40px;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: 0.4s;
-}
-
-.about-content .btn:hover {
-  background: transparent;
-  color: #7cf03d;
-  border: 2px solid #7cf03d;
 }
 
 .social-icons {
@@ -150,91 +161,58 @@ body {
   transform: scale(1.2);
 }
 
-/* --- About Image --- */
-.about-img {
-  width: 40%;
-  text-align: center;
-}
-
-.about-img img {
-  width: 70%;
-  border-radius: 50%;
-  border: 3px solid #7cf03d;
-  box-shadow: 0 0 20px rgba(124, 240, 61, 0.3);
-  animation: pulse 4s infinite alternate;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 20px rgba(124, 240, 61, 0.3);
-  }
-  100% {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(124, 240, 61, 0.6);
-  }
-}
-
-/* --- Responsive --- */
+/* Responsive */
 @media (max-width: 900px) {
-  .about-section {
-    flex-direction: column;
-    text-align: center;
-  }
-  .about-content, .about-img {
+  .about-content {
     width: 100%;
   }
-  .about-img {
-    margin-top: 30px;
-
-  }
 }
+.navbar .logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  margin-right: auto; /* pushes nav links to the right */
+  text-decoration: none;
+}
+
 </style>
 </head>
 
 <body>
 
-     <nav class="navbar">
-        <!-- <div class="logo"> Belinda Mukhaye</div> -->
-        <ul class="nav-links">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/aboutus.html">About</a></li>
-            <li><a href="/skills.html">Skills</a></li>
-            <li><a href="/projects.html">Projects</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-            
-    </nav>
+<nav class="navbar">
+    <a href="#" class="logo">Belinda Mukhaye</a>
+    <ul class="nav-links">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/aboutus.html">About</a></li>
+        <li><a href="/skills.html">Skills</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+    </ul>
+</nav>
 
-<!-- About Section -->
-<section class="about-section" id="about">
-  <div class="about-content">
+<!-- ABOUT SECTION CENTERED -->
+<section class="about-section">
+  <div class="about-card">
     <h1>About Me</h1>
-    <p> I am a Full-Stack Developer skilled in building scalable,
-       user-centered web applications. 
-       <br><br>
-       I have experience in both frontend and backend development,
-        with strengths in API design, problem-solving, modern engineering practices, 
-        and cloud deployment (AWS / Azure / DigitalOcean).
-        <br><br> 
-        I am passionate about creating practical, 
-        secure, and high-quality digital solutions. 
-        <br><br>
-         My approach combines technical excellence with Agile methodologies. I organize my work using Scrum sprints, prioritizing tasks and managing scope effectively to deliver high-quality software on time. </p>
-    
+
+    <p>
+      I am a Full-Stack Developer skilled in building scalable, user-centered web applications.
+      <br><br>
+      I have experience in both frontend and backend development, with strengths in API design, problem-solving,
+      modern engineering practices, and cloud deployment (AWS / Azure / DigitalOcean).
+      <br><br>
+      My workflow uses Agile + Scrum principles, helping me deliver clean, secure, maintainable software.
+    </p>
 
     <div class="social-icons">
-        
-    
-      <a href="https://wa.me/256761627809" ><i class="fab fa-whatsapp"></i></a>
+      <a href="https://wa.me/256761627809"><i class="fab fa-whatsapp"></i></a>
       <a href="https://www.linkedin.com/in/belinda-mukhaye-69a3b3367"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/belinda-png"><i class="fab fa-github"></i></a>
     </div>
   </div>
-
-  <div class="about-img">
-    <img src="images/rina.png" alt="About Me">
-  </div>
 </section>
+
 
 </body>
 </html>
