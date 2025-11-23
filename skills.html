@@ -1,272 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Skills</title>
-  <style>
-/* --- Global Styles --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Skills Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-body {
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
-}
+        body {
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-/* --- Navbar --- */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 8%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 100;
-  border-bottom: 1px solid #7cf03d;
-}
+        /* --- Navbar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 8%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 100;
+            border-bottom: 1px solid #7cf03d;
+        }
 
-.navbar .logo {
-  font-size: 22px;
-  font-weight: 700;
-  color: blue;
-}
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #7cf03d;
+        }
 
-.navbar ul {
-  display: flex;
-}
+        .navbar ul {
+            display: flex;
+        }
 
-.navbar ul li {
-  list-style: none;
-  margin: 0 20px;
-}
+        .navbar ul li {
+            list-style: none;
+            margin: 0 20px;
+        }
 
-.navbar ul li a {
-  color: #fff;
-  font-size: 18px;
-  transition: 0.3s;
-}
+        .navbar ul li a {
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
 
-.navbar ul li a:hover,
-.navbar ul li.active a {
-  color: #7cf03d;
-}
+        .navbar ul li a:hover,
+        .navbar ul li.active a {
+            color: #7cf03d;
+        }
 
-/* --- Skills Section --- */
-.skills-section {
-  width: 100%;
-  min-height: 100vh;
-  padding: 100px 10%;
-  background: #111;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: fadeIn 1.5s ease-in-out;
-  background: url('images/rina-png.jpg') no-repeat center/cover;
-}
+        /* --- Skills Section --- */
+        .skills-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23000"/><path d="M0 0L100 100M100 0L0 100" stroke="%23155" stroke-width="1"/></svg>');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5%;
+        }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+        .skills-container {
+            width: 90%;
+            max-width: 1200px;
+            color: #fff;
+        }
 
-.skills-section h1 {
-  font-size: 40px;
-  color: #7cf03d;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 1px;
-}
+        .skills-container h1 {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            color: #7cf03d;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.skills-section h2 {
-  font-size: 26px;
-  color: #7cf03d;
-  margin-bottom: 20px;
-  text-align: center;
-}
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
 
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 40px;
-}
+        .skill-card {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(124, 240, 61, 0.3);
+            animation: fadeIn 1s ease-in-out;
+            height: fit-content;
+            min-height: 200px;
+        }
 
-.skill {
-  background: #7cf03d;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 16px;
-  transition: 0.3s;
-}
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(124, 240, 61, 0.2);
+            border-color: #7cf03d;
+        }
 
-.skill:hover {
-  background: #b9ff8f;
-  transform: scale(1.1);
-}
+        .skill-category {
+            font-size: 20px;
+            color: #7cf03d;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(124, 240, 61, 0.5);
+        }
 
-/* --- Footer --- */
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #7cf03d;
-  font-size: 14px;
-  border-top: 1px solid #222;
-  margin-top: 40px;
-}
+        .skill-items {
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
 
-/* --- Responsive --- */
-@media (max-width: 900px) {
-  .skills-section {
-    text-align: center;
-    padding: 80px 5%;
-  }
-  .skills-list {
-    gap: 10px;
-  }
-  .skill {
-    font-size: 14px;
-  }
-}
-.skills-section {
-  position: relative;
-  min-height: 100vh;
-  background: url('your-background.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 0;
-}
+        .skill-item {
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            font-size: 14px;
+        }
 
-.skills-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7); /* dark overlay for readability */
-  backdrop-filter: blur(2px);
-}
+        .skill-item:last-child {
+            border-bottom: none;
+        }
 
-.skills-container {
-  position: relative;
-  z-index: 1;
-  width: 90%;
-  max-width: 800px;
-  color: #fff;
-}
+        .progress-skill {
+            margin-top: 12px;
+        }
 
-.skills-container h1 {
-  text-align: center;
-  font-size: 40px;
-  font-weight: 700;
-  color: #7cf03d;
-  margin-bottom: 50px;
-}
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 14px;
+            color: #7cf03d;
+            margin-bottom: 5px;
+        }
 
-.skills-container h2 {
-  font-size: 24px;
-  color: #7cf03d;
-  margin: 40px 0 20px;
-}
+        .progress {
+            background: #222;
+            height: 8px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
 
-.skill-box {
-  margin-bottom: 25px;
-}
+        .progress-bar {
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(90deg, #7cf03d, #b9ff8f);
+            animation: fillProgress 2s ease-in-out forwards;
+        }
 
-.skill-info {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 600;
-  font-size: 16px;
-  color: #7cf03d;
-  margin-bottom: 6px;
-}
+        /* Progress bar animations */
+        .progress-bar.html-css {
+            width: 0;
+            animation-delay: 0.2s;
+        }
+        
+        .progress-bar.bootstrap {
+            width: 0;
+            animation-delay: 0.4s;
+        }
+        
+        .progress-bar.responsive {
+            width: 0;
+            animation-delay: 0.6s;
+        }
+        
+        .progress-bar.python {
+            width: 0;
+            animation-delay: 0.8s;
+        }
+        
+        .progress-bar.rest {
+            width: 0;
+            animation-delay: 1s;
+        }
 
-.progress {
-  background: #222;
-  height: 10px;
-  border-radius: 20px;
-  overflow: hidden;
-}
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #7cf03d;
+            font-size: 14px;
+            border-top: 1px solid #222;
+        }
 
-.progress-bar {
-  height: 100%;
-  border-radius: 20px;
-  background: linear-gradient(90deg, lightgreen, #fff);
-  transition: width 1.5s ease;
-}
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-</style>
+        @keyframes fillProgress {
+            to {
+                width: var(--target-width);
+            }
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .navbar ul {
+                display: none;
+            }
+            
+            .skills-container h1 {
+                font-size: 32px;
+            }
+            
+            .skill-card {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <!-- <div class="logo">Portfolio</div> -->
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li class="active"><a href="#">Skills</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo"> Belinda Mukhaye</div>
-    <ul>
-      <li><a href="/index.html">Home</a></li>
-      
-      <li><a href="/aboutus.html">About</a></li>
-      <li class="active"><a href="/skills.html">Skills</a></li>
-      <li><a href="/projects.html">Projects</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-  </nav>
-  <section class="skills-section">
-  <div class="skills-container">
-    <h1>MY SKILLS</h1>
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="skills-container">
+            <h1>Technical Skills</h1>
+            
+            <div class="skills-grid">
+                <!-- Frontend Development Card -->
+                <div class="skill-card">
+                    <h2 class="skill-category">Frontend Development</h2>
+                    <ul class="skill-items">
+                        <li class="skill-item">HTML5, CSS, JavaScript</li>
+                        <li class="skill-item">React, React Native</li>
+                        <li class="skill-item">Bootstrap/Tailwind CSS</li>
+                    </ul>
+                    <div class="progress-skill">
+                        <div class="skill-info">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar html-css" style="--target-width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-skill">
+                        <div class="skill-info">
+                            <span>Bootstrap/Tailwind CSS</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bootstrap" style="--target-width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-skill">
+                        <div class="skill-info">
+                            <span>Responsive Design</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar responsive" style="--target-width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Development Card -->
+                <div class="skill-card">
+                    <h2 class="skill-category">Backend Development</h2>
+                    <ul class="skill-items">
+                        <li class="skill-item">Python, Django, Django REST Framework</li>
+                        <li class="skill-item">RESTful APIs, API Design</li>
+                        <li class="skill-item">Authentication, Testing</li>
+                    </ul>
+                    <div class="progress-skill">
+                        <div class="skill-info">
+                            <span>Python/Django</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar python" style="--target-width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-skill">
+                        <div class="skill-info">
+                            <span>REST APIs</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar rest" style="--target-width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Database & Data Card -->
+                <div class="skill-card">
+                    <h2 class="skill-category">Database & Data</h2>
+                    <ul class="skill-items">
+                        <li class="skill-item">PostgreSQL, SQLite, MySQL</li>
+                        <li class="skill-item">SQL</li>
+                    </ul>
+                </div>
+                
+                <!-- Cloud & DevOps Card -->
+                <div class="skill-card">
+                    <h2 class="skill-category">Cloud & DevOps</h2>
+                    <ul class="skill-items">
+                        <li class="skill-item">AWS, Azure, Digital Ocean</li>
+                        <li class="skill-item">Docker, CI/CD</li>
+                    </ul>
+                </div>
+                
+                <!-- Version Control Card -->
+                <div class="skill-card">
+                    <h2 class="skill-category">Version Control</h2>
+                    <ul class="skill-items">
+                        <li class="skill-item">Git, GitHub</li>
+                        <li class="skill-item">Collaborative Development</li>
+                    </ul>
+                </div>
+                
+                <!-- Methodologies Card -->
+                <div class="skill-card">
+                    <h2 class="skill-category">Methodologies</h2>
+                    <ul class="skill-items">
+                        <li class="skill-item">Agile, Scrum</li>
+                        <li class="skill-item">Sprint Planning</li>
+                        <li class="skill-item">Test-Driven Development</li>
+                    </ul>
+                </div>
+                
+                <!-- Tools & Editors Card -->
+                <div class="skill-card">
+                    <h2 class="skill-category">Tools & Editors</h2>
+                    <ul class="skill-items">
+                        <li class="skill-item">VS Code</li>
+                        <li class="skill-item">Postman</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h2>Frontend Development</h2>
-    <div class="skill-box">
-      <div class="skill-info">
-        <span>HTML / CSS</span><span>95%</span>
-      </div>
-      <div class="progress"><div class="progress-bar" style="width:95%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info"><span>Bootstrap / Tailwind CSS</span><span>88%</span></div>
-      <div class="progress"><div class="progress-bar" style="width:88%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info"><span>Responsive Design</span><span>92%</span></div>
-      <div class="progress"><div class="progress-bar" style="width:92%;"></div></div>
-    </div>
-
-    <h2>Backend Development</h2>
-
-    <div class="skill-box">
-      <div class="skill-info"><span>Python / Django</span><span>88%</span></div>
-      <div class="progress"><div class="progress-bar" style="width:88%;"></div></div>
-    </div>
-
-    <div class="skill-box">
-      <div class="skill-info"><span>REST APIs</span><span>90%</span></div>
-      <div class="progress"><div class="progress-bar" style="width:90%;"></div></div>
-    </div>
-
-    
-  </div>
-</section>
-
-
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Portfolio. All rights reserved.</p>
+    </footer>
 </body>
 </html>
