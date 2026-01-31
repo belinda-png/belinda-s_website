@@ -12,283 +12,250 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-<!-- YOUR CUSTOM CSS -->
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: #000;
+    color: #fff;
+}
+
+/* LOGO */
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff !important;
+}
+
+/* NAVIGATION */
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 100;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin: 35px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.navbar ul li a:hover,
+.navbar ul li.active a {
+    color: palegreen;
+}
+
+/* HOME SECTION */
+.home {
+    display: flex;
+    gap: 50px;
+    height: 100vh;
+    padding: 60px 9% 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LEFT COLUMN */
+.home-info {
+    flex: 1;
+}
+
+.home-info h1 {
+    font-size: 55px;
+}
+
+.home-info h3 {
+    display: inline-block;
+    font-size: 25px;
+    margin-top: 8px;
+}
+
+.home-info p {
+    font-size: 15px;
+    margin: 20px 0 25px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    background: palegreen;
+    border: 2px solid lime;
+    font-size: 16px;
+    color: #000;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 40px;
+    transition: .5s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #7cf03d;
+}
+
+/* SOCIAL ICONS */
+.sci a {
+    display: inline-flex;
+    background: #33cd14;
+    color: #000;
+    font-size: 20px;
+    margin: 0 8px;
+    padding: 8px;
+    border-radius: 50%;
+    border: 2px solid lime;
+    transition: .5s;
+}
+
+.sci a:hover {
+    background: lawngreen;
+    box-shadow: 0 0 10px lime;
+}
+
+/* RIGHT COLUMN (IMAGE) */
+.home-img {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* IMAGE ANIMATION */
+.home-img .img-box {
+    position: relative;
+    height: 320px;
+    width: 320px;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after {
+    content: '';
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    background: conic-gradient(transparent, transparent, transparent, #7cf03d);
+    animation: rotate-border 10s linear infinite;
+}
+
+.home-img .img-box::after {
+    animation-delay: -5s;
+}
+
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
     }
+}
 
-    a {
-        text-decoration: none;
+.img-item {
+    height: 100%;
+    width: 100%;
+    background: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.img-item img {
+    position: absolute;
+    top: 30px;
+    width: 85%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+/* BARS ANIMATION */
+.bars-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bars-animation .bar {
+    height: 100%;
+    width: 100%;
+    background: black;
+    transform: translateY(-100%);
+    animation: show-bar .5s ease-in-out forwards;
+}
+
+@keyframes show-bar {
+    100% {
+        transform: translateY(0%);
     }
+}
 
-    body {
-        background: #000;
-        color: #fff;
-    }
-
-    /* FIX ➜ Force logo to always be white */
-    .logo {
-        font-size: 20px;
-        font-weight: 700;
-        color: #fff !important;
-    }
-
-    /* NAVIGATION */
-    .navbar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        z-index: 100;
-    }
-
-    .navbar ul {
-        display: flex;
-    }
-
-    .navbar ul li {
-        list-style: none;
-        margin: 35px;
-    }
-
-    .navbar ul li a {
-        color: #fff;
-        font-size: 20px;
-        font-weight: 500;
-        transition: .5s;
-    }
-
-    .navbar ul li a:hover,
-    .navbar ul li.active a {
-        color: palegreen;
-    }
-
-    /* HOME SECTION */
-    .home {
-        display: flex;
-        gap: 50px;
-        height: 100vh;
-        padding: 60px 9% 0;
-        align-items: center;
-    }
-
-    .home-info h1 {
-        font-size: 55px;
-    }
-
-    .home-info h2 {
-        font-size: 30px;
-        margin: -10px 0;
-    }
-
-    .home-info h3 {
-        display: inline-block;
-        font-size: 25px;
-        margin-top: 8px;
-    }
-
-    /* .home-info h3 span {
-        position: relative;
-        display: inline-block;
-        color: transparent;
-        -webkit-text-stroke: .7px #7cf03d;
-        animation: display-text 5s linear infinite;
-        animation-delay: calc(-4s * var(--1));
-    } */
-
-    @keyframes display-text {
-        25%, 100% {
-            display: none;
-        }
-    }
-
-    /* .home-info h3 span::before {
-        content: attr(data-text);
-        position: absolute;
-        color: #7cf03d;
-        width: 0%;
-        border-right: 2px solid #7cf03d;
-        white-space: nowrap;
-        overflow: hidden;
-        animation: fill-text 4s linear infinite;
-    } */
-
-    @keyframes fill-text {
-        10%, 100% {
-            width: 0%;
-        }
-        70%, 90% {
-            width: 100%;
-        }
-    }
-
-    .home-info p {
-        font-size: 15px;
-        margin: 20px 0 25px;
-    }
-
-    .btn {
-        display: inline-block;
-        background: palegreen;
-        border: 2px solid lime;
-        font-size: 16px;
-        color: #000;
-        font-weight: 600;
-        padding: 10px 30px;
-        border-radius: 40px;
-        transition: .5s;
-    }
-
-    .btn:hover {
-        background: transparent;
-        color: #7cf03d;
-    }
-
-    .sci a {
-        display: inline-flex;
-        background: #33cd14;
-        color: #000;
-        font-size: 20px;
-        margin: 0 8px;
-        padding: 8px;
-        border-radius: 50%;
-        border: 2px solid lime;
-        transition: .5s;
-    }
-
-    .sci a:hover {
-        background: lawngreen;
-        box-shadow: 0 0 10px lime;
-    }
-
-    /* IMAGE ANIMATION */
-    .home-img .img-box {
-        position: relative;
-        height: 320px;
-        width: 320px;
-        border-radius: 50%;
-        padding: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    .home-img .img-box::before,
-    .home-img .img-box::after {
-        content: '';
-        position: absolute;
-        height: 500px;
-        width: 500px;
-        background: conic-gradient(transparent, transparent, transparent, #7cf03d);
-        animation: rotate-border 10s linear infinite;
-    }
-
-    .home-img .img-box::after {
-        animation-delay: -5s;
-    }
-
-    @keyframes rotate-border {
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    .img-item {
-        height: 100%;
-        width: 100%;
-        background: black;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-        z-index: 1;
-    }
-
-    .img-item img {
-        position: absolute;
-        top: 30px;
-        width: 85%;
-        object-fit: cover;
-        mix-blend-mode: lighten;
-    }
-
-    /* Bars animation */
-    .bars-animation {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        z-index: -1;
-    }
-
-    .bars-animation .bar {
-        height: 100%;
-        width: 100%;
-        background: black;
-        transform: translateY(-100%);
-        animation: show-bar .5s ease-in-out forwards;
-        animation-delay: calc(.1s * var(--1));
-    }
-
-    @keyframes show-bar {
-        100% {
-            transform: translateY(0%);
-        }
-    }
-    .card-container {
-  display: inline-flex; /* shrink to fit content */
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px 30px;
-  border-radius: 10px;
-  color: white;
-  gap: 40px;
+/* STATS CARDS */
+.card-container {
+    display: inline-flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 30px;
+    border-radius: 10px;
+    gap: 40px;
 }
 
 .card-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  white-space: nowrap;
-  border-right: 1px solid #555;
-  padding-right: 30px;
-  margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #555;
+    padding-right: 30px;
 }
 
 .card-item:last-child {
-  border-right: none;
-  margin-right: 0;
+    border-right: none;
 }
 
 .card-item .number {
-  font-weight: 700;
-  font-size: 1.8rem;
-  color: #38b6ff;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #38b6ff;
 }
 
 .card-item .label {
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  font-weight: 600;
-  margin-top: 4px;
-  color: #ccc;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ccc;
 }
 
 .card-item .label.bold {
-  font-weight: 900;
-  color: white;
+    font-weight: 900;
+    color: white;
 }
-
-
 </style>
 </head>
 
@@ -306,7 +273,7 @@
 </nav>
 
 <div class="bars-animation">
-    <div class="bar" style="--1:1;"></div>
+    <div class="bar"></div>
 </div>
 
 <section class="home">
@@ -315,35 +282,41 @@
         <h1>Belinda Mukhaye</h1>
         <h3>I'm a <span style="color: lime;">Full stack Developer</span></h3>
 
-    <p> passionate about building scalable, user-centered web applications 
-        <br>
-        using Python,JavaScript, and modern frameworks.
-        <br> 
-        I transform complex problems into efficient, high-quality solutions.</p> 
-        <div class="card-container">
-  <div class="card-item">
-    <div class="number">1+</div>
-    <div class="label">YEARS</div>
-    <div class="label bold">CODING</div>
-  </div>
-  <div class="card-item">
-    <div class="number">5+</div>
-    <div class="label">PROJECTS</div>
-    <div class="label bold">BUILT</div>
-  </div>
-  <div class="card-item">
-    <div class="number">100%</div>
-    <div class="label">COMMITTED</div>
-  </div>
-</div>
+        <p>
+            Am passionate about building scalable, user-centered web applications<br>
+            using Python, JavaScript, and modern frameworks.<br>
+            I transform complex problems into efficient, high-quality solutions.
+        </p>
 
-        <div class="btn-sci">
-            <div class="sci">
-                <a href="https://wa.me/256761627809"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://www.linkedin.com/in/belinda-mukhaye-69a3b3367/"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/belinda-png"><i class="fab fa-github"></i></a>
+        <div class="card-container">
+            <div class="card-item">
+                <div class="number">1+</div>
+                <div class="label">YEARS</div>
+                <div class="label bold">CODING</div>
+            </div>
+            <div class="card-item">
+                <div class="number">5+</div>
+                <div class="label">PROJECTS</div>
+                <div class="label bold">BUILT</div>
+            </div>
+            <div class="card-item">
+                <div class="number">100%</div>
+                <div class="label">COMMITTED</div>
             </div>
         </div>
+        <div class="btn-sci" style="">
+    <a href="cv/Belinda_Mukhaye_CV.pdf" class="btn" download>
+        Download CV
+    </a>
+
+    <div class="sci">
+        
+        <a href="https://wa.me/256761627809"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/belinda-mukhaye-69a3b3367/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/belinda-png"><i class="fab fa-github"></i></a>
+    </div>
+</div>
+
     </div>
 
     <div class="home-img">
@@ -354,10 +327,6 @@
         </div>
     </div>
 </section>
-
-<!-- SCRIPTS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>
